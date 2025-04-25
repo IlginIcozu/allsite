@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>ilginicozu</title>
+  <script src="./Tonal.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="./libraries/p5.min.js"></script>
+  <script src="./tone.js"></script>
+</head>
+
+<body>
+
+  <!-- The overlay container -->
+  <div id="overlay">
+    <div id="overlay-content">
+      <p>Click to start the sound</p>
+      <p>Click again to enter</p>
+    </div>
+  </div>
+  <script>
+  window.addEventListener('DOMContentLoaded', () => {
+      const sketches = [
+        'sketch1.js',
+        'sketch2.js',
+        'sketch3.js',
+        'sketch4.js'
+      ];
+      // pick a random index from 0–3
+      const choice = sketches[Math.floor(Math.random() * sketches.length)];
+      const script = document.createElement('script');
+      script.src = choice;
+      document.body.appendChild(script);
+    });
+  </script>
+ 
+</body>
+
+</html>
