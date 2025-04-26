@@ -6,7 +6,7 @@ let targetDir = 1; // Target direction to interpolate to
 let transitionStartTime = 0; // Time when the transition started
 let transitionDuration = 10000; // 2 seconds (in milliseconds)
 let count = 0
-let clickCount = 0
+var clickCount = 0
 
 let mousePressedTime = 0;
 let mousePressPosition = [0, 0];
@@ -247,7 +247,7 @@ function mousePressed() {
         }
     } else if (clickCount === 2) {
 
-        window.open("https://ilginicozu.com", "_blank");
+        // window.open("https://ilginicozu.com", "_blank");
     }
 
     targetDir *= -1;
