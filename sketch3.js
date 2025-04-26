@@ -15,7 +15,7 @@ let co = 1
 let rgbD, turnSpeed, flat
 
 let pix = 1
-let clickCount = 0
+var clickCount = 0
 
 
 let feed = 0.0
@@ -272,7 +272,7 @@ function mousePressed() {
         }
     } else if (clickCount === 2) {
 
-        window.open("https://ilginicozu.com", "_blank");
+        // window.open("https://ilginicozu.com", "_blank");
     }
 
 }
