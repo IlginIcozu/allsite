@@ -58,9 +58,73 @@ canvas {
   line-height: 1.4;              /* spacing between lines */
 }
 
-/* If you want the entire text box to be semitransparent, 
-   you could do something like:
-   background: rgba(255, 255, 255, 0.8);
-   or color: rgba(50,50,50,0.9); 
-   inside #overlay-content
-*/
+#switch-sketch {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  z-index: 100000;
+
+  /* bright circular container */
+  background: rgba(220, 220, 220, 0.9);
+  box-shadow: 0px 0px 6px 6px rgba(255, 255, 255, 0.0);
+  border: none;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+
+  /* center the image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* smooth scale transition */
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+#switch-sketch img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+#switch-sketch:hover {
+  transform: scale(1.15);
+}
+
+
+#menu-button {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  z-index: 100000;
+
+  /* bright circular container */
+  background: rgba(220, 220, 220, 0.9);
+  box-shadow: 0px 0px 6px 6px rgba(255, 255, 255, 0.0);
+  border: none;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+
+  /* center the image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* smooth scale transition */
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+#menu-button img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+#menu-button:hover {
+  transform: scale(1.15);
+}
