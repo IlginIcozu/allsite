@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="UTF-8">
   <title>ilginicozu</title>
@@ -9,32 +8,45 @@
   <script src="./libraries/p5.min.js"></script>
   <script src="./tone.js"></script>
 </head>
-
 <body>
 
   <!-- The overlay container -->
   <div id="overlay">
     <div id="overlay-content">
       <p>Click to start the sound</p>
-      <p>Click again to enter</p>
     </div>
   </div>
-  <script>
-  window.addEventListener('DOMContentLoaded', () => {
-      const sketches = [
-        'sketch1.js',
-        'sketch2.js',
-        'sketch3.js',
-        'sketch4.js'
-      ];
-      // pick a random index from 0–3
-      const choice = sketches[Math.floor(Math.random() * sketches.length)];
-      const script = document.createElement('script');
-      script.src = choice;
-      document.body.appendChild(script);
-    });
-  </script>
- 
-</body>
 
+  <button id="switch-sketch">
+    <img src="refresh.png" alt="Refresh sketch"/>
+  </button>
+
+  <button id="menu-button">
+    <img src="menu.png" alt="Menu" />
+  </button>
+
+  <script>
+        const sketches = [
+      'sketch1.js',
+      'sketch2.js',
+      'sketch3.js',
+      'sketch4.js'
+    ];
+    const choice = sketches[Math.floor(Math.random() * sketches.length)];
+    const script = document.createElement('script');
+    script.src = choice;
+    document.body.appendChild(script);
+
+    // 3) “Switch Sketch” button simply reloads the page
+    document.getElementById('switch-sketch')
+      .addEventListener('click', () => {
+        window.location.reload();
+      });
+
+      document.getElementById('menu-button')
+  .addEventListener('click', () => {
+    window.open('https://ilginicozu.com', '_blank');
+  });
+    </script>
+</body>
 </html>
