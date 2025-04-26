@@ -53,7 +53,7 @@ let brightnessSh;
 let brightnessPG;
 
 let overlayActive = true; 
-let clickCount = 0; 
+var clickCount = 0; 
 
 
 function preload() {
@@ -428,7 +428,7 @@ function mousePressed() {
   } 
   else if (clickCount === 2) {
   
-    window.open("https://ilginicozu.com", "_blank");
+    // window.open("https://ilginicozu.com", "_blank");
   }
 
 
