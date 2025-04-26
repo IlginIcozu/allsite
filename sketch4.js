@@ -12,7 +12,7 @@ let oldLight, newLight;
 // when params() was last called
 let lastFrame = 0;
 let interval = 8000;
-let clickCount = 0
+var clickCount = 0
 
 function preload() {
   theShader = loadShader('shaderf.vert', 'shaderf.frag');
@@ -106,7 +106,7 @@ function mousePressed() {
     }
 } else if (clickCount === 2) {
 
-    window.open("https://ilginicozu.com", "_blank");
+    // window.open("https://ilginicozu.com", "_blank");
 }
 }
 
