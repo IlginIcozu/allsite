@@ -12,6 +12,11 @@ uniform float u_grad;
 uniform float u_amp;
 uniform float u_freq;
 uniform float u_light;
+uniform float u_exp;
+uniform float u_col;
+uniform float u_sin;
+uniform float u_offs;
+uniform float u_sel;
 #define CONTRAST 1.05    // contrast control
 
 // Flame parameters
@@ -25,7 +30,7 @@ uniform float u_light;
 #define TURB_NUM    5.0
 #define TURB_AMP   u_amp
 #define TURB_FREQ   u_freq
-#define TURB_EXP    1.9
+#define TURB_EXP    u_exp
 
 // Simple value noise
 float rand(vec2 n) {
@@ -86,8 +91,24 @@ void main() {
     t.y += scroll;
 
     // Add horizontal sine wave displacement varying by vertical position
-    float wave = sin(u_time * 0.5 + uv.y * 50.0) * 0.25;
-    vec2 t2 = vec2(t.x + wave, t.y);
+    float wave = sin(u_offs+ u_time * 0.5 + uv.y * u_sin) * 0.25;
+    
+    if(u_sel == 0.0) {
+     t /= vec2(t.x + wave, t.y - wave);
+     t *= vec2(t.x + wave, t.y - wave);
+    }else if(u_sel == 1.0) {
+    t += vec2(t.x + wave, t.y - wave);
+    t *= vec2(t.x + wave, t.y - wave);
+    }else{
+
+    }
+
+
+
+
+    
+
+
 
     // t2.x += sin( u_jiggle) * 2.0;
 
@@ -95,9 +116,9 @@ void main() {
     vec2 local = t;
     local.y *= stretch.y;
     float dist = length(local) - RADIUS;
-    float light = u_light / pow(dist * dist + GRADIENT * max(t.y + 0.5, 0.0), 3.0);
+    float light = u_light / pow(dist * dist + GRADIENT * max(t.y + 0.5, 0.20), 3.0);
     vec2 source = t + vec2(0.0, 3.0 * RADIUS) * stretch;
-    vec3 grad = 0.07 / (1.0 + 50.0 * length(source) / vec3(9.0, 3.0, 1.0));
+    vec3 grad = 0.07 / (1.0 + u_col * length(source) / vec3(9.0, 3.0, 1.0));
 
     // Flicker
     float ft = FLICKER_SPEED * u_time;
